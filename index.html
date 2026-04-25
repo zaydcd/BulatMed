@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    />
+    <title>Мёдъ Лавка — натуральный мёд с пасеки | Татарстан, Бавлы</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <h1>🍯 Мёдъ Лавка</h1>
+        <p>Натуральный мёд прямо с пасеки — Татарстан, г. Бавлы</p>
+      </div>
+
+      <div class="address-badge">
+        🗺️ Наша пасека: Республика Татарстан, г. Бавлы, село Новозареченск<br />
+        📍 Всего
+        <strong>2 км от границы Башкортостана, Ермекеевский район</strong> —
+        приезжайте за свежим мёдом!
+      </div>
+
+      <div class="benefits">
+        <h3>🌿 Натурально и честно</h3>
+        <div class="benefits-grid">
+          <span class="benefit-item">✅ Без сахара и ГМО</span>
+          <span class="benefit-item">🔥 Без нагрева >40°C</span>
+          <span class="benefit-item"
+            >🐝 Своя пасека (Татарстан, Новозареченск)</span
+          >
+        </div>
+      </div>
+
+      <!-- КНОПКИ НАВИГАЦИИ -->
+      <div class="nav-buttons">
+        <button class="nav-btn catalog-nav-btn" id="openCatalogBtn">
+          📋 Каталог товаров
+        </button>
+        <button class="nav-btn cart-nav-btn" id="openCartBtn">
+          🛒 Корзина <span id="navCartCount" class="nav-cart-count">0</span>
+        </button>
+      </div>
+
+      <!-- КОРЗИНА И ФОРМА -->
+      <div class="cart-section" id="cartSection">
+        <div class="cart-header">
+          <h2>🛒 Моя корзина</h2>
+          <span class="cart-count" id="cartCount">0</span>
+        </div>
+        <div class="selected-list" id="selectedList">
+          <div class="empty-cart">
+            Корзина пуста<br />📦 Нажмите «Каталог товаров», чтобы добавить
+          </div>
+        </div>
+
+        <div class="total-summary" id="totalSummary">
+          <div class="total-row">
+            <span>Итого товаров:</span>
+            <span id="totalItemsCount">0</span>
+          </div>
+          <div class="total-row grand-total">
+            <span>💰 Общая сумма заказа:</span>
+            <span id="totalAmount">0 ₽</span>
+          </div>
+        </div>
+
+        <div class="order-form compact">
+          <h3>📝 Данные для заказа</h3>
+
+          <div class="form-row">
+            <label for="userName">Ваше имя *</label>
+            <input type="text" id="userName" placeholder="Иван" required />
+          </div>
+
+          <div class="form-row">
+            <label for="userPhone">Телефон</label>
+            <input
+              type="tel"
+              id="userPhone"
+              placeholder="+7 999 123-45-67"
+              value="+7"
+            />
+          </div>
+
+          <div class="form-row">
+            <label for="userEmail">Email</label>
+            <input type="email" id="userEmail" placeholder="med@example.ru" />
+          </div>
+
+          <div class="button-group">
+            <button class="btn-action" id="copyBtn">
+              📋 Скопировать заявку
+            </button>
+            <button class="btn-action secondary" id="emailBtn">
+              ✉️ Отправить на почту
+            </button>
+            <button class="btn-action secondary" id="messengerBtn">
+              💬 Отправить в мессенджер
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="footer-contacts">
+          <div class="footer-contact-item">
+            📞 Телефон:
+            <a href="tel:+79991234567" class="contact-link phone-link"
+              >+7 999 123-45-67</a
+            >
+          </div>
+          <div class="footer-contact-item">
+            ✉️ Email:
+            <a href="mailto:med@bavly-tat.ru" class="contact-link email-link"
+              >med@bavly-tat.ru</a
+            >
+          </div>
+        </div>
+        <div class="footer-address">
+          🏠 Адрес пасеки:
+          <strong>Республика Татарстан, г. Бавлы, село Новозареченск</strong>
+        </div>
+        <div class="footer-worktime">
+          🐝 Работаем для вас ежедневно с 9:00 до 20:00
+        </div>
+      </footer>
+    </div>
+
+    <!-- МОДАЛЬНОЕ ОКНО ДЛЯ КАТАЛОГА -->
+    <div id="catalogModal" class="modal catalog-modal">
+      <div class="modal-content-catalog">
+        <div class="modal-header">
+          <h2>🍯 Каталог мёда и даров пчеловодства</h2>
+          <button class="close-catalog-btn" id="closeCatalogBtn">
+            ✖ Закрыть каталог
+          </button>
+        </div>
+        <div class="catalog" id="catalog"></div>
+      </div>
+    </div>
+
+    <!-- МОДАЛЬНОЕ ОКНО ДЛЯ УВЕЛИЧЕННОГО ФОТО -->
+    <div id="imageViewerModal" class="image-viewer-modal">
+      <span class="image-viewer-close">&times;</span>
+      <img class="image-viewer-content" id="imageViewerImg" />
+    </div>
+
+    <script src="js/script.js"></script>
+  </body>
+</html>
