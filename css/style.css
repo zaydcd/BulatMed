@@ -33,8 +33,9 @@ body {
     letter-spacing: -0.5px;
 }
 
+/* Увеличен шрифт параграфа в заголовке в 2 раза (было 0.6rem → стало 1.2rem) */
 .header p {
-    font-size: 0.6rem;
+    font-size: 1.2rem;
     font-weight: 500;
 }
 
@@ -82,11 +83,17 @@ body {
     box-shadow: 0 2px 6px rgba(0,0,0,0.05);
 }
 
-/* КНОПКИ НАВИГАЦИИ */
+/* КНОПКИ НАВИГАЦИИ - СТИКИ (прилипают при скролле) */
 .nav-buttons {
     display: flex;
     gap: 1rem;
     margin-bottom: 1.5rem;
+    position: sticky;
+    top: 0;
+    background: #FEF9E6;
+    padding: 0.5rem 0;
+    z-index: 99;
+    border-radius: 0 0 1rem 1rem;
 }
 
 .nav-btn {
@@ -117,6 +124,14 @@ body {
 
 .nav-btn.cart-nav-btn:hover {
     background: #B06E1A;
+}
+
+.nav-btn.help-nav-btn {
+    background: #8B6914;
+}
+
+.nav-btn.help-nav-btn:hover {
+    background: #6B4F0E;
 }
 
 .nav-cart-count {
@@ -328,6 +343,7 @@ body {
     flex: 1;
     transition: 0.2s;
     font-size: 0.75rem;
+    position: relative;
 }
 
 .btn-action:hover {
@@ -366,7 +382,7 @@ body {
     max-height: 90vh;
     overflow-y: auto;
     position: relative;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
 }
 
 .modal-header {
@@ -488,13 +504,11 @@ body {
     box-shadow: 0 0 0 3px rgba(245, 176, 66, 0.2);
 }
 
-/* Убираем стрелки у number input для WebKit браузеров (опционально) */
 .catalog-qty-input::-webkit-inner-spin-button,
 .catalog-qty-input::-webkit-outer-spin-button {
     opacity: 0.5;
 }
 
-/* Для Firefox */
 .catalog-qty-input {
     -moz-appearance: textfield;
 }
@@ -623,6 +637,11 @@ footer {
     color: #666;
 }
 
+/* Стили для всплывающих подсказок (tooltip) */
+.btn-action[title] {
+    position: relative;
+}
+
 /* Адаптивность */
 @media (max-width: 768px) {
     .container {
@@ -630,11 +649,13 @@ footer {
         padding-bottom: 100px;
     }
     
+    /* На мобильных кнопки навигации НЕ sticky, а фиксированные внизу */
     .nav-buttons {
         position: fixed;
         bottom: 0;
         left: 0;
         right: 0;
+        top: auto;
         margin: 0;
         padding: 0.8rem;
         background: rgba(254, 249, 230, 0.95);
@@ -642,6 +663,7 @@ footer {
         z-index: 100;
         gap: 0.8rem;
         border-top: 1px solid #FFDA88;
+        border-radius: 0;
     }
     
     .nav-btn {
@@ -699,6 +721,11 @@ footer {
     
     .image-viewer-content {
         transform: translate(-50%, -50%) scale(3);
+    }
+    
+    /* Увеличенный шрифт параграфа на мобильных тоже увеличиваем пропорционально */
+    .header p {
+        font-size: 1rem;
     }
 }
 
@@ -763,5 +790,9 @@ footer {
     
     .image-viewer-content {
         transform: translate(-50%, -50%) scale(2);
+    }
+    
+    .header p {
+        font-size: 0.9rem;
     }
 }
