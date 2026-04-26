@@ -411,6 +411,20 @@ function setupCartScroll() {
   }
 }
 
+// === КНОПКА ПОМОЩИ ===
+function setupHelpButton() {
+  const helpBtn = document.getElementById("openHelpBtn");
+  if (helpBtn) {
+    helpBtn.addEventListener("click", () => {
+      window.open(
+        "help.html",
+        "Помощь",
+        "width=800,height=700,scrollbars=yes,resizable=yes",
+      );
+    });
+  }
+}
+
 // === ФОРМИРОВАНИЕ ЗАЯВКИ ===
 function getOrderText() {
   const name = document.getElementById("userName").value.trim();
@@ -494,7 +508,7 @@ function sendToMessenger() {
   );
 
   let url = useWhatsApp
-    ? `https://wa.me/79991234567?text=${encoded}`
+    ? `https://wa.me/79376001737?text=${encoded}`
     : `https://t.me/share/url?url=${encodeURIComponent("Заказ мёда")}&text=${encoded}`;
   window.open(url, "_blank");
 }
@@ -505,6 +519,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const openImageViewer = setupImageViewer();
   setupCatalogModal(openImageViewer);
   setupCartScroll();
+  setupHelpButton();
   updateCartDisplay();
 
   document.getElementById("copyBtn").addEventListener("click", copyToBuffer);
